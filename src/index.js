@@ -12,8 +12,8 @@ import store from './state/store';
 
 // Initialize client state
 import { loadWeb3 } from './state/init/web3';
-import { initSockets } from './state/init/sockets';
-import { initContracts } from './state/init/contracts';
+// import { initSockets } from './state/init/sockets';
+// import { initContracts } from './state/init/contracts';
 import { startTipTimer } from './state/init/timer';
 
 // load data
