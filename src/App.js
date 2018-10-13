@@ -4,6 +4,21 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import WebMidi from 'webmidi';
+import { Howl } from 'howler';
+var bassDrum = new Howl({
+  src: ['https://freewavesamples.com/files/Bass-Drum-1.wav']
+});
+var snare = new Howl({
+  src: ['https://freewavesamples.com/files/Ensoniq-ESQ-1-Snare.wav']
+});
+
+var closedHat = new Howl({
+  src: ['https://freewavesamples.com/files/Closed-Hi-Hat-1.wav']
+});
+
+var openHat = new Howl({
+  src: ['https://freewavesamples.com/files/Ensoniq-SQ-1-Open-Hi-Hat.wav']
+});
 
 class App extends Component {
   constructor(props) {
@@ -29,11 +44,42 @@ class App extends Component {
     const control = event.data[0] + '-' + event.data[1];
     const status = !!event.data[2];
 
+    if (status) {
+      switch (control) {
+        case '176-11':
+          bassDrum.play();
+          break;
+        case '176-12':
+          snare.play();
+          break;
+        case '176-13':
+          closedHat.play();
+          break;
+        case '176-14':
+          openHat.play();
+          break;
+
+        default:
+          break;
+      }
+    }
+
     console.log('control: ' + control, ' on: ' + status);
 
     return this.setState({
       [control]: status
     });
+  }
+
+  createPad(padData) {
+    return (
+      <audio
+        className="button"
+        style={this.state[padData.code] ? { backgroundColor: 'yellow' } : {}}
+        id={padData.code}
+        src={padData.sample}
+      />
+    );
   }
 
   render() {
@@ -47,13 +93,16 @@ class App extends Component {
 
         <div className="main">
           <h1>test #1: music</h1>
-          <h2>The controller</h2>
+          <h2>Controller: Traktor Kontrol S4 MK2 </h2>
           <div className="controller">
             <div
               className="button"
               style={this.state['176-11'] ? { backgroundColor: 'yellow' } : {}}
             >
-              {' '}
+              <audio
+                id="176-11"
+                src="https://freewavesamples.com/files/Bass-Drum-1.wav"
+              />
             </div>
             <div
               className="button"
