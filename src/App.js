@@ -5,80 +5,192 @@ import './App.css';
 
 import WebMidi from 'webmidi';
 import { Howl } from 'howler';
-var bassDrum = new Howl({
-  src: ['https://freewavesamples.com/files/Bass-Drum-1.wav']
-});
-var snare = new Howl({
-  src: ['https://freewavesamples.com/files/Ensoniq-ESQ-1-Snare.wav']
-});
+import { Object } from 'core-js';
 
-var closedHat = new Howl({
-  src: ['https://freewavesamples.com/files/Closed-Hi-Hat-1.wav']
-});
-
-var openHat = new Howl({
-  src: ['https://freewavesamples.com/files/Ensoniq-SQ-1-Open-Hi-Hat.wav']
-});
+const samples = {
+  '176-15': {
+    name: 'space lander',
+    howl: new Howl({
+      src: ['/sounds/Casio-VZ-10M-Space-Lander-C2.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-16': {
+    name: 'oooh',
+    howl: new Howl({
+      src: ['/sounds/Alesis-Fusion-Voice-Oohs-C4.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-17': {
+    name: 'dark pad',
+    howl: new Howl({
+      src: ['/sounds/Ensoniq-ESQ-1-Omen-Pad-C2.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-18': {
+    name: 'atari crunch',
+    howl: new Howl({
+      src: ['/sounds/M-Audio-Venom-Atari-C2.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-11': {
+    name: 'kick',
+    howl: new Howl({
+      src: ['/sounds/Boom-Kick.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-12': {
+    name: 'snare',
+    howl: new Howl({
+      src: ['/sounds/Ensoniq-ESQ-1-Snare.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-13': {
+    name: 'closed hat',
+    howl: new Howl({
+      src: ['/sounds/Closed-Hi-Hat-1.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '176-14': {
+    name: 'crash',
+    howl: new Howl({
+      src: ['/sounds/Crash-Cymbal-1.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-11': {
+    name: 'breakdown loop',
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-600-Disco-2.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-12': {
+    name: 'disco loop',
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-Disco.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-13': {
+    name: 'swing loop',
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-Beguine.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-14': {
+    name: "80's party",
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-16-Beat.wav']
+    }),
+    status: 'ready',
+    on: false
+  }
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       midiEnabled: false,
-      '176-11': false,
-      '176-12': false,
-      '176-13': false,
-      '176-14': false
+      controllerName: 'N/A'
     };
   }
 
   componentDidMount() {
     WebMidi.enable(err => {
       if (err) console.log(err);
-      const S4 = WebMidi.getInputByName('Traktor Kontrol S4 MK2 Input');
-      S4.addListener('controlchange', 'all', this.handleMIDI.bind(this));
+
+      const name = 'Traktor Kontrol S4 MK2 Input';
+      const midiInput = WebMidi.getInputByName(name);
+      midiInput.addListener('controlchange', 'all', this.handleMIDI.bind(this));
+
+      this.setState({
+        midiEnabled: midiInput.state === 'connected',
+        controllerName: name
+      });
     });
   }
 
   handleMIDI(event) {
     const control = event.data[0] + '-' + event.data[1];
-    const status = !!event.data[2];
+    const isActive = !!event.data[2];
 
-    if (status) {
-      switch (control) {
-        case '176-11':
-          bassDrum.play();
-          break;
-        case '176-12':
-          snare.play();
-          break;
-        case '176-13':
-          closedHat.play();
-          break;
-        case '176-14':
-          openHat.play();
-          break;
+    if (samples[control]) {
+      samples[control].on = isActive;
 
-        default:
-          break;
+      if (isActive) {
+        samples[control].howl.play();
+      } else {
+        samples[control].howl.stop();
       }
-    }
 
-    console.log('control: ' + control, ' on: ' + status);
+      console.log('control: ' + control, ' on: ' + isActive);
+
+      return this.setState({
+        [control]: isActive
+      });
+    } else {
+      console.log('undefined input: ', control);
+    }
+  }
+
+  handleClick(event) {
+    const control = event.target.id;
+    const isActive = true;
+
+    samples[event.target.id].on = true;
+    samples[event.target.id].howl.play();
+
+    setTimeout(() => {
+      samples[control].on = false;
+      return this.setState({
+        [control]: isActive
+      });
+    }, 150);
 
     return this.setState({
-      [control]: status
+      [control]: isActive
     });
   }
 
-  createPad(padData) {
+  createPad(sample) {
     return (
-      <audio
+      <div
+        key={sample}
+        id={sample}
         className="button"
-        style={this.state[padData.code] ? { backgroundColor: 'yellow' } : {}}
-        id={padData.code}
-        src={padData.sample}
-      />
+        style={
+          samples[sample].on
+            ? { backgroundColor: 'yellow', color: 'black' }
+            : {}
+        }
+        onClick={this.handleClick.bind(this)}
+      >
+        <div>
+          <div>{samples[sample].name}</div>
+          <div>{samples[sample].status}</div>
+        </div>
+      </div>
     );
   }
 
@@ -87,41 +199,27 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>
-            <span style={{ color: 'yellow' }}>stone soup</span>
+            <span style={{ color: 'yellow' }}>souvenir</span>
+            <small>experiments in digital artifacts</small>
           </h1>
         </header>
 
         <div className="main">
-          <h1>test #1: music</h1>
-          <h2>Controller: Traktor Kontrol S4 MK2 </h2>
-          <div className="controller">
-            <div
-              className="button"
-              style={this.state['176-11'] ? { backgroundColor: 'yellow' } : {}}
-            >
-              <audio
-                id="176-11"
-                src="https://freewavesamples.com/files/Bass-Drum-1.wav"
-              />
+          <h2>1. musical performance</h2>
+          <p className="description">
+            This page represents a performance contract. 16 audio samples have
+            been tokenized and distributed. When the tokens are donated back to
+            this performance the sample will be unlocked.
+          </p>
+          <div>
+            <div className="controller">
+              {Object.keys(samples).map(sample => this.createPad(sample))}
             </div>
-            <div
-              className="button"
-              style={this.state['176-12'] ? { backgroundColor: 'yellow' } : {}}
-            >
-              {' '}
-            </div>
-            <div
-              className="button"
-              style={this.state['176-13'] ? { backgroundColor: 'yellow' } : {}}
-            >
-              {' '}
-            </div>
-            <div
-              className="button"
-              style={this.state['176-14'] ? { backgroundColor: 'yellow' } : {}}
-            >
-              {' '}
-            </div>
+
+            <p className="midiStatus">
+              MIDI Enabled: {this.state.midiEnabled.toString()} – Controller:{' '}
+              {this.state.controllerName}
+            </p>
           </div>
         </div>
       </div>
@@ -131,7 +229,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    samples: state.controller.samples
+    // samples: state.controller.samples
   };
 };
 
@@ -147,19 +245,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
-
-// import logo from './logo.svg';
-// {/* <img src={logo} className="App-logo" alt="logo" /> */}
-
-// <h2>Hypothesis</h2>
-// <p>
-//   A great performance is more than the sum of it's parts – it's a
-//   once-in-a-lifetime experience.
-// </p>
-// <h2>The setup</h2>
-// <p>
-//   16 audio samples have been tokenized and distributed to my friends and
-//   colleagues. If they are donated back to the performance contract then
-//   they will be available to be played through this interface.
-// </p>
-// <p> On November 1, 2018 I'll try to </p>
