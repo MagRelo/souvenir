@@ -1,49 +1,65 @@
-.App {
-  background-color: #282c34;
-  color: white;
-  min-height: 100vh;
+body {
+  background-color: #393939;
+  color: #EEEEEE;
+
+  font-family: 'Nunito', 'Open Sans', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+h1,
+h2,
+h3,
+h4 {
+  color: #898989;
+  font-family: 'Nunito', 'Open Sans', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding-left: 1em;
+h1 {
+  font-size: 3.2em;
+  margin-bottom: .5em;
 }
 
-.App-header h1 {
-  margin: .2em 0;
+h2 {
+  font-size: 2.5em;
 }
 
-.App-header h1 small {
+h3 {
+  font-size: 2em;
+  margin-bottom: .5em;
+}
+
+h4 {
+  font-size: 1.625em;
+}
+
+
+
+header {
+  margin-top: 1em;
+}
+
+header .title {
+  margin: .2em 0 0 0;
   color: yellow;
-  font-size: .5em;
-  opacity: 0.5;
-  margin-left: .5em;
+  font-size: 3em;
+  font-weight: bold;
 }
 
-.App-header p {
-  font-size: .75em;
-  margin: 0
+
+header ul {
+  float: right;
 }
+
+header ul li {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
+  line-height: 3em;
+}
+
 
 .App-link {
-  color: #61dafb;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  color: #FFCC00;
 }
 
 .midiStatus {
@@ -63,13 +79,12 @@
   padding: 2em;
 }
 
-.button {
+.pad {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 10em;
   height: 10em;
-
   border: solid 1px gray;
   border-radius: 100px;
   text-align: center;
@@ -77,4 +92,19 @@
 
 .description {
   max-width: 48em;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 900px;
+  min-height: 100vh;
+}
+
+.grey {
+  background-color: #f0f2f7;
+}
+
+li {
+  margin-bottom: 1em;
+  padding: 0 1em;
 }

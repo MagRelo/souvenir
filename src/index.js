@@ -16,6 +16,9 @@ import { loadWeb3 } from './state/init/web3';
 // import { initContracts } from './state/init/contracts';
 import { startTipTimer } from './state/init/timer';
 
+import './css/nunito.css';
+import './css/open-sans.css';
+
 // load data
 async function init() {
   // connect to server, get contract info
