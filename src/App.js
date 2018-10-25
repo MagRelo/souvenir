@@ -31,19 +31,19 @@ class App extends Component {
                   <a href="/#distribute">Scatter</a>
                 </li>
                 <li>
-                  <a href="/#contribute">Coalesce</a>
+                  <a href="/#contribute">Assemble</a>
                 </li>
                 <li>
                   <a href="/#performance">Create</a>
                 </li>
                 <li>
-                  <a href="/#forge">Forge and Seal</a>{' '}
+                  <a href="/#forge">Forge</a>{' '}
                 </li>
               </ul>
 
               <div>
                 <a href="/#">
-                  <span className="title">souvenir</span>
+                  <span className="title">alloy</span>
                 </a>
               </div>
             </nav>
@@ -98,13 +98,13 @@ class App extends Component {
 
         <section id="tokenize" className=" grey">
           <div className="wrapper">
-            <h2>tokenize</h2>
+            <h2>tokenize any digital media</h2>
             <p>test</p>
           </div>
         </section>
         <section id="distribute">
           <div className="wrapper">
-            <h2>distribute</h2>
+            <h2>distribute your tokens</h2>
             <p>test</p>
           </div>
         </section>
@@ -120,8 +120,16 @@ class App extends Component {
           </div>
         </section>
         <section id="forge" className="grey">
-          <h2>seal</h2>
+          <div className="wrapper">
+            <h2>forge a unique performance artifact</h2>
+            <p>The performance is now </p>
+          </div>
         </section>
+
+        <footer>
+          <div>About this project</div>
+          <div>made by Matt Lovan</div>
+        </footer>
       </div>
     );
   }
