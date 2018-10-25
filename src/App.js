@@ -20,24 +20,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <section>
-          <header>
+        <header>
+          <div className="wrapper">
             <nav>
               <ul>
-                <li>Tokenize</li>
-                <li>Distribute</li>
-                <li>Assemble</li>
-                <li>Performance</li>
-                <li>Forge and Seal </li>
+                <li>
+                  <a href="/#tokenize">Tokenize</a>
+                </li>
+                <li>
+                  <a href="/#distribute">Scatter</a>
+                </li>
+                <li>
+                  <a href="/#contribute">Coalesce</a>
+                </li>
+                <li>
+                  <a href="/#performance">Create</a>
+                </li>
+                <li>
+                  <a href="/#forge">Forge and Seal</a>{' '}
+                </li>
               </ul>
 
               <div>
-                <span className="title">souvenir</span>
+                <a href="/#">
+                  <span className="title">souvenir</span>
+                </a>
               </div>
             </nav>
-          </header>
+          </div>
+        </header>
 
-          <div>
+        <section id="home">
+          <div className="wrapper">
             <h1>Live Performance</h1>
 
             <h3>1. Create and tokenize audio samples (ERC 998, 712) </h3>
@@ -82,19 +96,30 @@ class App extends Component {
           </div>
         </section>
 
-        <section className="tokenize grey">
-          <h2>tokenize</h2>
+        <section id="tokenize" className=" grey">
+          <div className="wrapper">
+            <h2>tokenize</h2>
+            <p>test</p>
+          </div>
         </section>
-        <section className="distribute">
-          <h2>distribute</h2>
+        <section id="distribute">
+          <div className="wrapper">
+            <h2>distribute</h2>
+            <p>test</p>
+          </div>
         </section>
-        <section className="donate grey">
-          <h2>dontate</h2>
+        <section id="contribute" className="grey">
+          <div className="wrapper">
+            <h2>contribute</h2>
+            <p>test</p>
+          </div>
         </section>
-        <section className="perform">
-          <Controller />
+        <section id="performance">
+          <div className="wrapper">
+            <Controller />
+          </div>
         </section>
-        <section className="seal  grey">
+        <section id="forge" className="grey">
           <h2>seal</h2>
         </section>
       </div>
