@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import scrollToComponent from 'react-scroll-to-component';
 
+import ProfilePic from './images/profile.jpg';
+
 import Controller from './Controller';
 
 import './App.css';
@@ -52,7 +54,7 @@ class App extends Component {
                       );
                     }}
                   >
-                    Scatter
+                    Distribute
                   </a>
                 </li>
                 <li>
@@ -87,7 +89,7 @@ class App extends Component {
                     onClick={() => {
                       scrollToComponent(
                         this.forge,
-                        Object.assign(scrollOptions, { offset: 95 })
+                        Object.assign(scrollOptions, { offset: 72 })
                       );
                     }}
                   >
@@ -103,7 +105,7 @@ class App extends Component {
                     scrollToComponent(this.home, scrollOptions);
                   }}
                 >
-                  ><span className="title">alloy</span>
+                  <span className="title">alloy</span>
                 </a>
               </div>
             </nav>
@@ -117,47 +119,16 @@ class App extends Component {
           }}
         >
           <div className="wrapper">
-            <h1>Live Performance</h1>
+            <h1>digital is free; digital is cheap.</h1>
 
-            <h3>1. Create and tokenize audio samples (ERC 998, 712) </h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-              rerum odio minus nemo neque quaerat inventore modi. Laudantium
-              rem, voluptatem aliquid officiis eveniet, tempore aperiam quod
-              animi nisi commodi adipisci?
-            </p>
-
-            <h3>2. Distribute samples (bouncer, scavenger hunt) </h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-              rerum odio minus nemo neque quaerat inventore modi. Laudantium
-              rem, voluptatem aliquid officiis eveniet, tempore aperiam quod
-              animi nisi commodi adipisci?
-            </p>
-
-            <h3>3. Donate tokens to enable audio samples (merkle?) </h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores, laboriosam! Fugiat debitis omnis voluptatibus mollitia
-              harum sapiente est modi ratione, sed eum vel laboriosam
-              praesentium asperiores optio, voluptatum nulla culpa.
-            </p>
-
-            <h3>4. Live Performance (interactive midi)</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores, laboriosam! Fugiat debitis omnis voluptatibus mollitia
-              harum sapiente est modi ratione, sed eum vel laboriosam
-              praesentium asperiores optio, voluptatum nulla culpa.
-            </p>
-
-            <h3>5. Permanantly seal performance</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores, laboriosam! Fugiat debitis omnis voluptatibus mollitia
-              harum sapiente est modi ratione, sed eum vel laboriosam
-              praesentium asperiores optio, voluptatum nulla culpa.
-            </p>
+            <h1>authentic scarcity:</h1>
+            <ul>
+              <li>moments in time</li>
+              <li>positive energy</li>
+              <li>new relationships</li>
+              <li>generosity</li>
+              <li>honesty</li>
+            </ul>
           </div>
         </section>
 
@@ -170,7 +141,7 @@ class App extends Component {
         >
           <div className="wrapper">
             <h2>tokenize any digital media</h2>
-            <p>test</p>
+            <p>(ERC 998, 712) </p>
           </div>
         </section>
         <section
@@ -181,7 +152,18 @@ class App extends Component {
         >
           <div className="wrapper">
             <h2>distribute your tokens</h2>
-            <p>test</p>
+            <p>use any means neccesary (bouncer, scavenger hunt) </p>
+            <div>
+              <div>
+                <p>send</p>
+              </div>
+              <div>
+                <p>scavenger hunt</p>
+              </div>
+              <div>
+                <p>sell</p>
+              </div>
+            </div>
           </div>
         </section>
         <section
@@ -193,7 +175,7 @@ class App extends Component {
         >
           <div className="wrapper">
             <h2>contribute</h2>
-            <p>test</p>
+            <p>(race to contribute - merkle?)</p>
           </div>
         </section>
         <section
@@ -203,9 +185,12 @@ class App extends Component {
           }}
         >
           <div className="wrapper">
+            (interactive midi)
             <Controller />
           </div>
         </section>
+
+        {/* FORGE */}
         <section
           id="forge"
           className="grey"
@@ -215,14 +200,35 @@ class App extends Component {
         >
           <div className="wrapper">
             <h2>forge a unique performance artifact</h2>
-            <p>The performance is now </p>
+            <div>
+              <p>The performance is now </p>
+            </div>
+            <div>
+              <p>mobile phone</p>
+            </div>
           </div>
         </section>
 
-        <footer>
-          <div>About this project</div>
-          <div>made by Matt Lovan</div>
-        </footer>
+        <div className="wrapper">
+          <footer>
+            <div>
+              <h4>About this project</h4>
+              <p>
+                This project is an expirement in using participation and
+                responsibility to create meaning.
+              </p>
+            </div>
+            <div>
+              <img
+                style={{ border: 'solid 1px #393939', borderRadius: '50%' }}
+                src={ProfilePic}
+                alt="profile pic of matt lovan"
+              />
+              <p>@mattlovan</p>
+              <p>mattlovan@gmail.com</p>
+            </div>
+          </footer>
+        </div>
       </div>
     );
   }
