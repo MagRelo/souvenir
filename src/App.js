@@ -5,7 +5,7 @@ import scrollToComponent from 'react-scroll-to-component';
 
 import ProfilePic from './images/profile.jpg';
 
-import Controller from './Controller';
+import Controller from './controller/Controller';
 
 import './App.css';
 
@@ -129,6 +129,8 @@ class App extends Component {
               <li>generosity</li>
               <li>honesty</li>
             </ul>
+
+            <h1>If you didn't contribute it didn't happen</h1>
           </div>
         </section>
 
@@ -185,7 +187,8 @@ class App extends Component {
           }}
         >
           <div className="wrapper">
-            (interactive midi)
+            <h2>create (interactive midi)</h2>
+            <p className="description" />
             <Controller />
           </div>
         </section>
