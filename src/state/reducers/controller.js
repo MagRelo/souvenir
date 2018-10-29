@@ -96,6 +96,38 @@ const samples = {
     }),
     status: 'ready',
     on: false
+  },
+  '177-99': {
+    name: 'disco loop',
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-Disco.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-98': {
+    name: 'swing loop',
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-Beguine.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-97': {
+    name: "80's party",
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-16-Beat.wav']
+    }),
+    status: 'ready',
+    on: false
+  },
+  '177-96': {
+    name: "80's party",
+    howl: new Howl({
+      src: ['/sounds/Casio-MT-45-16-Beat.wav']
+    }),
+    status: 'ready',
+    on: false
   }
 };
 

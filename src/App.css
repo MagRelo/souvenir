@@ -51,12 +51,16 @@ h4 {
   font-size: 1.625em;
 }
 
-
+.highlight-light {
+  color: #bbb;
+}
 
 header {
   position: fixed;
+  z-index: 1;
   width: 100%;
-  padding-top: 1em;
+
+  padding-top: 0.5em;
   background-color: #393939;
 }
 
@@ -69,6 +73,7 @@ header .title {
 
 header ul {
   float: right;
+  margin-bottom: 0;
 }
 
 header ul li {
@@ -110,37 +115,7 @@ header nav li a {
   color: yellow;
 }
 
-.midiStatus {
-  text-transform: uppercase;
-  color: gray;
-  text-align: center;
-}
 
-.controller {
-
-
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1em;
-
-  border: solid 1px gray;
-  border-radius: 85px;
-  padding: 2em;
-
-  max-width: 50vw;
-}
-
-.pad {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* width: 10em;
-  height: 10em; */
-  border: solid 1px gray;
-  border-radius: 100px;
-  text-align: center;
-}
 
 .description {
   max-width: 48em;
@@ -178,7 +153,12 @@ footer h4 {
   margin-top: 0;
 }
 
+.forge-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4em;
+}
 
-#forge {
-  min-height: 85vh;
+.iphone {
+  max-height: 50vh
 }
