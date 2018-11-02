@@ -61,7 +61,7 @@ header {
   width: 100%;
 
   padding-top: 0.5em;
-  background-color: #393939;
+  /* background-color: #393939; */
 }
 
 header .title {
@@ -153,10 +153,21 @@ footer h4 {
   margin-top: 0;
 }
 
-.forge-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 4em;
+label.upper {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+
+@media screen and (min-width: 992px) {
+  .row-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .iphone {

@@ -24,6 +24,9 @@ code {
     monospace;
 }
 
+.text-center {
+  text-align: center;
+}
 
 .row {
   display: grid;
@@ -31,12 +34,13 @@ code {
   grid-gap: 1em;
 }
 
-.row-forge {
-  grid-template-columns: 3fr 2fr;
-}
 
 @media screen and (min-width: 992px) {
   .row-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

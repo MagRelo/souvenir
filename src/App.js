@@ -42,7 +42,7 @@ class App extends Component {
                       );
                     }}
                   >
-                    Tokenize
+                    Inputs
                   </a>
                 </li>
                 <li>
@@ -127,7 +127,6 @@ class App extends Component {
               <span className="highlight-light">authentic</span> scarcity
             </h3>
             <div className="row row-2">
-              <h1>digital is free; digital is cheap.</h1>
               <div>
                 <h2>authentic scarcity:</h2>
                 <ul>
@@ -154,8 +153,27 @@ class App extends Component {
           }}
         >
           <div className="wrapper">
-            <h2>tokenize any digital media</h2>
+            <h2>Create your inputs</h2>
             <p>(ERC 998, 712) </p>
+
+            <div className="text-center">
+              <label className="upper">Case Studies</label>
+            </div>
+
+            <div className="row row-3 text-center">
+              <div>
+                <h4>Painting</h4>
+                <p>pantone colors</p>
+              </div>
+              <div>
+                <h4>Music</h4>
+                <p>audio samples</p>
+              </div>
+              <div>
+                <h4>Improv</h4>
+                <p>characters</p>
+              </div>
+            </div>
           </div>
         </section>
         <section
@@ -200,8 +218,25 @@ class App extends Component {
         >
           <div className="wrapper">
             <h2>create (interactive midi)</h2>
-            <p className="description" />
-            <Controller />
+
+            <div className="text-center">
+              <label className="upper">Case Studies</label>
+            </div>
+            <div className="row row-3 text-center">
+              <div>
+                <h4>Painting</h4>
+                <p>pantone colors</p>
+              </div>
+              <div>
+                <h4>Music</h4>
+                <p>audio samples</p>
+                <Controller />
+              </div>
+              <div>
+                <h4>Improv</h4>
+                <p>characters</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -214,10 +249,31 @@ class App extends Component {
           }}
         >
           <div className="wrapper">
-            <div className="row row-forge">
-              <div>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateRows: 'auto 1fr',
+                gridTemplateColumns: '3fr 2fr'
+              }}
+            >
+              <div
+                style={{
+                  gridColumnStart: 1,
+                  gridColumnEnd: 1,
+                  gridRowStart: 1,
+                  gridRowEnd: 2
+                }}
+              >
                 <h2>forge an authentic artifact</h2>
-
+              </div>
+              <div
+                style={{
+                  gridColumnStart: 1,
+                  gridColumnEnd: 1,
+                  gridRowStart: 2,
+                  gridRowEnd: 3
+                }}
+              >
                 <h3>More than the sum of its parts</h3>
                 <p>The performance is now </p>
                 <h3>exactly as rare as it should be</h3>
@@ -226,7 +282,15 @@ class App extends Component {
                 <p>make 1 or 10 or 10,000 – expirement with scarcity</p>
               </div>
 
-              <div style={{ textAlign: 'center' }}>
+              <div
+                style={{
+                  gridColumnStart: 2,
+                  gridColumnEnd: 2,
+                  gridRowStart: 1,
+                  gridRowEnd: 3,
+                  textAlign: 'center'
+                }}
+              >
                 <h3>moment App</h3>
                 <img className="iphone" src={Phone} alt="iphone" />
                 <p>coming soon</p>
