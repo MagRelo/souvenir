@@ -106,7 +106,7 @@ class App extends Component {
                     scrollToComponent(this.home, scrollOptions);
                   }}
                 >
-                  <span className="title">moment</span>
+                  <span className="title">souvenir</span>
                 </a>
               </div>
             </nav>
@@ -139,7 +139,7 @@ class App extends Component {
               </div>
             </div>
             <h2>
-              with moment, it's never the same without you – your presence
+              with souvenir, it's never the same without you – your presence
               contributes to the final product.
             </h2>
           </div>
@@ -277,9 +277,9 @@ class App extends Component {
                 <h3>More than the sum of its parts</h3>
                 <p>The performance is now </p>
                 <h3>exactly as rare as it should be</h3>
-                <p>make 1 or 10 or 10,000 – expirement with scarcity</p>
+                <p>participants become owners</p>
                 <h3>innovate with ownership</h3>
-                <p>make 1 or 10 or 10,000 – expirement with scarcity</p>
+                <p>redefine ownership with programatic incentives</p>
               </div>
 
               <div
@@ -291,7 +291,7 @@ class App extends Component {
                   textAlign: 'center'
                 }}
               >
-                <h3>moment App</h3>
+                <h3>souvenir App</h3>
                 <img className="iphone" src={Phone} alt="iphone" />
                 <p>coming soon</p>
               </div>
@@ -325,9 +325,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    samples: state.controller.samples
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {
